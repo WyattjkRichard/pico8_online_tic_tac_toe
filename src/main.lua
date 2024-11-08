@@ -8,6 +8,7 @@ function _init()
     game_board_reg_offset = 0x5f80 + 3 -- offset for registers containing the current game state
 
     game_board = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}}
+
     x, y, x_coord, y_coord, winner = 0, 0, 0, 0, 0
 
     player_value = peek(player_value_reg)
@@ -31,9 +32,9 @@ function _update()
     elseif connection_status == 1 then
         -- connected
         x, y = mid(stat(32), 0, 127), mid(stat(33), 0, 127)
+        x_coord, y_coord = check_coords(x, y)
+
         if is_player_turn then
-            x_coord, y_coord = check_coords(x, y)
-            
             if stat(34) & 1 == 1 then
                 if game_board[x_coord][y_coord] == 0 then
                     game_board[x_coord][y_coord] = player_value + 1

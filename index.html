@@ -632,7 +632,7 @@
 
 		}
 		e.type = "application/javascript";
-		e.src = "game.js";
+		e.src = "pico8.js";
 		e.id = "e_script";
 		
 		document.body.appendChild(e); // load and run
@@ -982,7 +982,7 @@ canvas{
 
 .p8_start_button{
 	cursor:pointer;
-	background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAADKElEQVR4Ae2dQW7zIBBG/Ue+SxZZ5CSV/sN44Z3FjgWHqZSTdNFFb9MFEUIEbJpgD4H3VFXUcSj6HjOzHZZ5Gob77xTLPNkft155+U8U3OpND3DKOZDSRmnj1rInboyT0maZJ/IVE2DTdxdfvCS7E/DYbXKaJp4agSEcVgAgAAGAgI4E2Cm0PouWebI/wRrKV0A0WaWN0sb/k+BKCvBDzwmX619SQHC7c8KlAgoyBolTAX0h7lL8AOEQBgQgABDQkQA7haKzaJkn9zy6tgt/vTnxcl6jAu5hKW2UNm7tP3evBWtf0uOebkNwjDa1p3NJfTf6kLsfb0H+zf0rqe+mNqQIwgqIpmZjsn9udqFo6KmU/T1BHvGmJH6A5BAGBCAAENC+ADuForNomSf3PLq2C3+9OfFyXqMC7mEpbZQ2bu0/d68Fa1/S455uQ3CMqbAyCXxExfgvk3hYAS/eSv/W52RNEYQV4Cfl1jYm++dmF4qGnkrZ3xPkEW9K4gdIDmFAAAIAAQgABDTNv2WeSKFfxPWLH4AWxAxAACCgX8ZmRrfSBgEH5R7Nev1TBBSIfj1Z92nOy7DWTJ545+lvPbd5RwJeCWg/u70IeD2dXQU3LqBUNHs7blNA2VwO0Pw0p679Q/QC7nErjyk1KuD9QAAt6KiecFi7owJoQYAABAACEAC1s8xT5sM9/tFO/4sKoAXBW7eg4p1hZTdaEFRZAQXv5vo+4hVQr4Ai6WzugIAdA8r5LgL2yijzW+ICxvolKW1sTEqb/EwzXxbnDQS4NN1tjYa7/ikCimlI9Y0g9+vlPAzD1/cPAnY0keJ6Of//+LDryh2cup3/CIA+BFwvZzsPmAEyuGFQ50hoX0DlJsZlnmRPsMcBPm+3HBN2IZvAqLSRTb/UAVyj//r+yWz6SpuCB6AFhU0m+qQ2Ts33+spNtFMBdqjaoFfirs1EgxXwXjQ1A/wiQAAOaEFpPm83q4oK6L0IGhSw6aCe69+sABf0ih4EHFEEDGFAAAIAAQgABCAAEIAAQAACAAEIAAQgABCAAAQQAQIQAAhAACAAAYAABAACEAAIQAAcwy/dGrS+hqj8agAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII=");
+	background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAAAeUlEQVR4Ae3dIQ7AIBBFwW0P0xMicGQdghP2NHUYUtcUM6MQqP+S1UerJfuIRYtrvjPu9QOfOLOPVoshtgWICA02B3i7QvwRwPoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0wP7ZxEKAFSAlgAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII=");
 	-repeat center;
 	-webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;
 }
@@ -1120,8 +1120,16 @@ canvas{
 
 <!-- Add content below the cart here -->
 
-
-
+<div>
+	<input id="webrtc_offer_input" readonly></input>
+	<button id="webrtc_offer_button" onclick="copy_offer_cb()" value="">Loading offer...</button>
+</div>
+<div>
+	<input id="webrtc_answer_input"></input>
+	<button id="webrtc_answer_button" onclick="copy_answer_cb()">...</button>
+</div>
+<div id="chat_messages"></div>
+<script type="text/javascript" src="webRTC.js"></script>
 
 </div> <!-- body_0 -->
 </body></html>
