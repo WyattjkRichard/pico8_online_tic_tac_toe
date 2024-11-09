@@ -65,14 +65,15 @@ function _draw()
         print("player "..winner.." wins", 0, 0, 7)
     elseif connection_status == 0 then
         -- waiting to connect
+        map()
         if player_value == 0 then
-            print("you are the host", 0, 0, 7)
-            print("waiting for guest to connect", 0, 10, 7)
-            print("send them the link bellow", 0, 20, 7)
-            print("paste their link in the empty \nfield", 0, 30, 7)
+            print("you are the host", 0, 80, 7)
+            print("waiting for guest to connect", 0, 90, 7)
+            print("send them the link bellow", 0, 100, 7)
+            print("paste their response in the \nempty field", 0, 110, 7)
         elseif player_value == 1 then
-            print("you are the guest", 0, 0, 7)
-            print("send the link bellow to the host", 0, 10, 7)
+            print("you are the guest", 0, 80, 7)
+            print("send the link bellow to the host", 0, 90, 7)
         end
     elseif connection_status == 1 then
         -- connected
